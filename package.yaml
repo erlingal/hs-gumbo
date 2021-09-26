@@ -1,0 +1,20 @@
+name: gumbo
+synopsis: Bindings for the Gumbo HTML5 parsing library
+license: Apache-2.0
+dependencies:
+  - base
+  - bytestring
+  - string-conversions
+
+library:
+  build-tools: c2hs
+  source-dirs: src
+  c-sources: cbits/*.c
+  cc-options: -std=c99
+  include-dirs: cbits
+
+executables:
+  gumbop:
+    main: Main.hs
+    dependencies:
+      - gumbo

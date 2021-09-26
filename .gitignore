@@ -1,0 +1,10 @@
+
+# (if you're adding something, maybe add it to reflake as well?)
+.stack
+dist
+dist-newstyle
+.stack-work
+\#*#
+result
+result-doc
+node_modules

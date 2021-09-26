@@ -1,0 +1,55 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           gumbo
+version:        0.0.0
+synopsis:       Bindings for the Gumbo HTML5 parsing library
+license:        Apache-2.0
+license-file:   LICENSE
+build-type:     Simple
+
+library
+  exposed-modules:
+      Text.HTML.Gumbo
+      Text.HTML.Gumbo.C
+      Text.HTML.Gumbo.Types
+  other-modules:
+      Paths_gumbo
+  hs-source-dirs:
+      src
+  cc-options: -std=c99
+  include-dirs:
+      cbits
+  c-sources:
+      cbits/attribute.c
+      cbits/char_ref.c
+      cbits/error.c
+      cbits/parser.c
+      cbits/string_buffer.c
+      cbits/string_piece.c
+      cbits/tag.c
+      cbits/tokenizer.c
+      cbits/utf8.c
+      cbits/util.c
+      cbits/vector.c
+  build-tools:
+      c2hs
+  build-depends:
+      base
+    , bytestring
+    , string-conversions
+  default-language: Haskell2010
+
+executable gumbop
+  main-is: Main.hs
+  other-modules:
+      Paths_gumbo
+  build-depends:
+      base
+    , bytestring
+    , gumbo
+    , string-conversions
+  default-language: Haskell2010
